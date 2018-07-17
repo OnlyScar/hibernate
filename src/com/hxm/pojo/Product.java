@@ -1,9 +1,21 @@
 package com.hxm.pojo;
 
+import java.util.Set;
+
 public class Product {
 	int id;
 	String name;
 	float price;
+	
+	//增加分类属性
+	Category category;
+	
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 	public int getId() {
 		return id;
 	}
@@ -22,5 +34,15 @@ public class Product {
 	public void setPrice(float price) {
 		this.price = price;
 	}
+	
+	Set<User> users;
+
+	public Set<User> getUsers() {
+		return users;
+	}
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+	
 	
 }

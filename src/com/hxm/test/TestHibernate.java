@@ -1,5 +1,7 @@
 package com.hxm.test;
 
+import java.util.Set;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.classic.Session;
@@ -21,10 +23,19 @@ public class TestHibernate {
 			s.save(p);
 		}*/
 		
-		Category c = new Category();
-		
+		/*Category c = new Category();
 		c.setName("美食");
 		s.save(c);
+		
+		Product p = (Product) s.get(Product.class, 8);
+		p.setCategory(c);
+		s.update(p);*/
+		
+		Category c = (Category) s.get(Category.class, 1);
+		Set<Product> ps = c.getProducts();
+		for (Product p : ps) {
+			System.out.println(p.getName());
+		}
 		
 		s.getTransaction().commit();
 		s.close();

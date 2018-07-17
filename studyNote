@@ -32,3 +32,20 @@ HQL（Hibernate Query Language）是hibernate专门用于查询数据的语句�
 Hibernate依然保留了对标准SQL语句的支持，在一些场合，比如多表联合查询，并且有分组统计函数的情况下，标准SQL语句依然是效率较高的一种选择
 
 因为标准SQL语句有可能返回各种各样的结果，比如多表查询，分组统计结果等等。 不能保证其查询结果能够装进一个Product对象中，所以返回的集合里的每一个元素是一个对象数组。 然后再通过下标把这个对象数组中的数据取出来。
+
+hibernate中的延迟加载(lazyload)分属性的延迟加载和关系的延迟加载   load  get
+
+属性的延迟加载: 
+当使用load的方式来获取对象的时候，只有访问了这个对象的属性，hibernate才会到数据库中进行查询。否则不会访问数据库
+
+级联有4种类型：
+all：所有操作都执行级联操作；
+none：所有操作都不执行级联操作；
+delete：删除时执行级联操作； 
+save-update：保存和更新时执行级联操作；
+级联通常用在one-many和many-to-many上，几乎不用在many-one上。
+
+hibernate默认是开启一级缓存的，一级缓存存放在session上
+Hibernate的一级缓存是在Session上，二级缓存是在SessionFactory上
+
+
